@@ -1,16 +1,30 @@
+
+'use strict';
+require('es6-promise').polyfill();
+
 var express = require('express');
 var request = require('request');
 var cheerio = require('cheerio');
 var app = express();
-var port = 3000;
 
 var url = "http://www.cptm.sp.gov.br/Pages/Home.aspx";
+const userAgent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/601.3.9';
 
-function getDataFromCptm(callback){
+exports.getStatusCPTM = function() {
 
-  request(url, function(err, resp, body) {
+  return new Promise(function(accept, error) {
+    var options = {
+      url:  url,
+      headers: {
+        'User-Agent': userAgent
+      }
+    };
+
+
+request(url, function(err, resp, body) {
 
     if(err){
+      console.log("Ocorreu um erro!");
       throw err;
     }
 
@@ -30,7 +44,7 @@ function getDataFromCptm(callback){
     var coralTxt = $(coral).text();
     var safiraTxt = $(safira).text();
 
-    var obj = {
+    var lines = {
       rubi: rubiTxt,
       diamante: diamanteTxt,
       esmeralda: esmeraldaTxt,
@@ -38,18 +52,9 @@ function getDataFromCptm(callback){
       coral: coralTxt,
       safira: safiraTxt
     };
-
-    callback(obj);
-
+    accept(JSON.stringify(lines));
   });
+});
 }
 
-app.get('/', function(req, res){
-  getDataFromCptm(function(data){
-    res.send(data);
-  });
-});
 
-app.listen(port, function(req, res){
-  console.log('server is listening on ' + port);
-});
