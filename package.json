@@ -1,6 +1,6 @@
 {
   "name": "cptm-status",
-  "version": "1.0.2",
+  "version": "1.0.6",
   "description": "Status das linhas da CPTM",
   "main": "index.js",
   "scripts": {
@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/ezefranca/cptm-status/issues"
   },
-  "homepage": "https://github.com/ezefranca/cptm-status#readme"
+  "homepage": "https://github.com/ezefranca/cptm-status#readme",
+  "dependencies": {
+    "chance": "^1.0.16"
+  }
 }

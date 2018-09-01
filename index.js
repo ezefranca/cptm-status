@@ -1,6 +1,7 @@
 
 'use strict';
 require('es6-promise').polyfill();
+const chance = require('chance').Chance();
 
 var express = require('express');
 var request = require('request');
@@ -30,31 +31,78 @@ request(url, function(err, resp, body) {
 
     var $ = cheerio.load(body);
 
-    var rubi = $('.rubi span').get(1);
-    var diamante = $('.diamante span').get(1);
-    var esmeralda = $('.esmeralda span').get(1);
-    var turquesa = $('.turquesa span').get(1);
-    var coral = $('.coral span').get(1);
-    var safira = $('.safira span').get(1);
+    var _rubi = $('.rubi span').get(1);
+    var _diamante = $('.diamante span').get(1);
+    var _esmeralda = $('.esmeralda span').get(1);
+    var _turquesa = $('.turquesa span').get(1);
+    var _coral = $('.coral span').get(1);
+    var _safira = $('.safira span').get(1);
 
-    var rubiTxt = $(rubi).text();
-    var diamanteTxt = $(diamante).text();
-    var esmeraldaTxt = $(esmeralda).text();
-    var turquesaTxt = $(turquesa).text();
-    var coralTxt = $(coral).text();
-    var safiraTxt = $(safira).text();
+    var rubi = {id: chance.string(),
+                cor: "Rubi",
+                linha: _rubi,
+                status: $(_rubi).text(),
+                imagem: "",
+                descricao: "",
+                msgStatus: $(_rubi).text(),
+                codigo: ""
+    }
 
-    var lines = {
-      rubi: rubiTxt,
-      diamante: diamanteTxt,
-      esmeralda: esmeraldaTxt,
-      turquesa: turquesaTxt,
-      coral: coralTxt,
-      safira: safiraTxt
-    };
-    accept(JSON.stringify(lines));
+    var diamante = {id: chance.string(),
+      cor: "Diamante",
+      linha: _diamante, 
+      status: $(_diamante).text(),
+      imagem: "",
+      descricao: "",
+      msgStatus: $(_diamante).text(),
+      codigo: ""
+    }
+
+    var esmeralda = {id: chance.string(),
+      cor: "Esmeralda",
+      linha: _esmeralda, 
+      status: $(_esmeralda).text(),
+      imagem: "",
+      descricao: "",
+      msgStatus: $(_esmeralda).text(),
+      codigo: ""
+    }
+
+    var turquesa = {id: chance.string(),
+      cor: "Turquesa",
+      linha: _turquesa, 
+      status: $(_turquesa).text(),
+      imagem: "",
+      descricao: "",
+      msgStatus: $(_turquesa).text(),
+      codigo: ""
+    }
+
+    var coral = {id: chance.string(),
+      cor: "Coral",
+      linha: _coral, 
+      status: $(_coral).text(),
+      imagem: "",
+      descricao: "",
+      msgStatus: $(_coral).text(),
+      codigo: ""
+    }
+
+    var safira = {id: chance.string(),
+      cor: "Safira",
+      linha: _safira, 
+      status: $(_safira).text(),
+      imagem: "",
+      descricao: "",
+      msgStatus: $(_safira).text(),
+      codigo: ""
+    }
+    
+    var lines = [rubi, diamante, esmeralda, turquesa, coral, safira];
+    console.log(lines);
+    //var json = JSON.stringify(yourArray);
+    accept(lines);
   });
 });
 }
-
 
