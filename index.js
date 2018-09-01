@@ -40,11 +40,11 @@ request(url, function(err, resp, body) {
     var _turquesa = $('.turquesa span').get(1);
     var _coral = $('.coral span').get(1);
     var _safira = $('.safira span').get(1);
-
+    
     var rubi = {
       id: chance.string(),
       cor: "Rubi",
-      linha: _rubi,
+      linha: _rubi.get(1).text(),
       status: $(_rubi).text(),
       imagem: "",
       descricao: "",
@@ -55,7 +55,7 @@ request(url, function(err, resp, body) {
     var diamante = {
       id: chance.string(),
       cor: "Diamante",
-      linha: _diamante, 
+      linha: _diamante.get(1).text(), 
       status: $(_diamante).text(),
       imagem: "",
       descricao: "",
@@ -66,7 +66,7 @@ request(url, function(err, resp, body) {
     var esmeralda = {
       id: chance.string(),
       cor: "Esmeralda",
-      linha: _esmeralda, 
+      linha: _esmeralda.get(1).text(), 
       status: $(_esmeralda).text(),
       imagem: "",
       descricao: "",
@@ -77,7 +77,7 @@ request(url, function(err, resp, body) {
     var turquesa = {
       id: chance.string(),
       cor: "Turquesa",
-      linha: _turquesa, 
+      linha: _turquesa.get(1).text(), 
       status: $(_turquesa).text(),
       imagem: "",
       descricao: "",
@@ -88,7 +88,7 @@ request(url, function(err, resp, body) {
     var coral = {
       id: chance.string(),
       cor: "Coral",
-      linha: _coral, 
+      linha: _coral.get(1).text(), 
       status: $(_coral).text(),
       imagem: "",
       descricao: "",
@@ -99,7 +99,7 @@ request(url, function(err, resp, body) {
     var safira = {
       id: chance.string(),
       cor: "Safira",
-      linha: _safira, 
+      linha: _safira.get(1).text(), 
       status: $(_safira).text(),
       imagem: "",
       descricao: "",

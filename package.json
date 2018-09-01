@@ -1,6 +1,6 @@
 {
   "name": "cptm-status",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Status das linhas da CPTM",
   "main": "index.js",
   "scripts": {
