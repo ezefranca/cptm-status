@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cptm-status": "^1.0.6"
+    "cptm-status": "^1.0.7"
   }
 }

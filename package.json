@@ -1,6 +1,6 @@
 {
   "name": "cptm-status",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Status das linhas da CPTM",
   "main": "index.js",
   "scripts": {
@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/ezefranca/cptm-status#readme",
   "dependencies": {
-    "chance": "^1.0.16"
+    "chance": "^1.0.16",
+    "circular-json": "^0.5.5"
   }
 }

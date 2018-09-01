@@ -1,11 +1,14 @@
 
 'use strict';
 require('es6-promise').polyfill();
-const chance = require('chance').Chance();
+
 
 var express = require('express');
 var request = require('request');
 var cheerio = require('cheerio');
+const JSON = require('circular-json');
+const chance = require('chance').Chance();
+
 var app = express();
 
 var url = "http://www.cptm.sp.gov.br/Pages/Home.aspx";
@@ -38,17 +41,19 @@ request(url, function(err, resp, body) {
     var _coral = $('.coral span').get(1);
     var _safira = $('.safira span').get(1);
 
-    var rubi = {id: chance.string(),
-                cor: "Rubi",
-                linha: _rubi,
-                status: $(_rubi).text(),
-                imagem: "",
-                descricao: "",
-                msgStatus: $(_rubi).text(),
-                codigo: ""
+    var rubi = {
+      id: chance.string(),
+      cor: "Rubi",
+      linha: _rubi,
+      status: $(_rubi).text(),
+      imagem: "",
+      descricao: "",
+      msgStatus: $(_rubi).text(),
+      codigo: ""
     }
 
-    var diamante = {id: chance.string(),
+    var diamante = {
+      id: chance.string(),
       cor: "Diamante",
       linha: _diamante, 
       status: $(_diamante).text(),
@@ -58,7 +63,8 @@ request(url, function(err, resp, body) {
       codigo: ""
     }
 
-    var esmeralda = {id: chance.string(),
+    var esmeralda = {
+      id: chance.string(),
       cor: "Esmeralda",
       linha: _esmeralda, 
       status: $(_esmeralda).text(),
@@ -68,7 +74,8 @@ request(url, function(err, resp, body) {
       codigo: ""
     }
 
-    var turquesa = {id: chance.string(),
+    var turquesa = {
+      id: chance.string(),
       cor: "Turquesa",
       linha: _turquesa, 
       status: $(_turquesa).text(),
@@ -78,7 +85,8 @@ request(url, function(err, resp, body) {
       codigo: ""
     }
 
-    var coral = {id: chance.string(),
+    var coral = {
+      id: chance.string(),
       cor: "Coral",
       linha: _coral, 
       status: $(_coral).text(),
@@ -88,7 +96,8 @@ request(url, function(err, resp, body) {
       codigo: ""
     }
 
-    var safira = {id: chance.string(),
+    var safira = {
+      id: chance.string(),
       cor: "Safira",
       linha: _safira, 
       status: $(_safira).text(),
@@ -97,11 +106,8 @@ request(url, function(err, resp, body) {
       msgStatus: $(_safira).text(),
       codigo: ""
     }
-    
     var lines = [rubi, diamante, esmeralda, turquesa, coral, safira];
-    console.log(lines);
-    //var json = JSON.stringify(yourArray);
-    accept(lines);
+    accept(JSON.stringify(lines));
   });
 });
 }
